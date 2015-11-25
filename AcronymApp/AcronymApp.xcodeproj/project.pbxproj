@@ -15,6 +15,7 @@
 		2B617A371C04F81500C876DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B617A351C04F81500C876DB /* LaunchScreen.storyboard */; };
 		2B617A421C04F81500C876DB /* AcronymAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B617A411C04F81500C876DB /* AcronymAppTests.m */; };
 		2B617A4D1C04F81600C876DB /* AcronymAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B617A4C1C04F81600C876DB /* AcronymAppUITests.m */; };
+		2B617A5B1C05532E00C876DB /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2B617A5A1C05532E00C876DB /* background.jpg */; };
 		3127B5FBFD6CF35B2FE88D97 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FA5A2AD41B7916B7809E35 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 		2B617A481C04F81500C876DB /* AcronymAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AcronymAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B617A4C1C04F81600C876DB /* AcronymAppUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AcronymAppUITests.m; sourceTree = "<group>"; };
 		2B617A4E1C04F81600C876DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B617A5A1C05532E00C876DB /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		F7CC54966B639910E771A6F3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -122,6 +124,7 @@
 				2B617A2D1C04F81500C876DB /* ViewController.h */,
 				2B617A2E1C04F81500C876DB /* ViewController.m */,
 				2B617A301C04F81500C876DB /* Main.storyboard */,
+				2B617A5A1C05532E00C876DB /* background.jpg */,
 				2B617A331C04F81500C876DB /* Assets.xcassets */,
 				2B617A351C04F81500C876DB /* LaunchScreen.storyboard */,
 				2B617A381C04F81500C876DB /* Info.plist */,
@@ -271,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B617A371C04F81500C876DB /* LaunchScreen.storyboard in Resources */,
+				2B617A5B1C05532E00C876DB /* background.jpg in Resources */,
 				2B617A341C04F81500C876DB /* Assets.xcassets in Resources */,
 				2B617A321C04F81500C876DB /* Main.storyboard in Resources */,
 			);

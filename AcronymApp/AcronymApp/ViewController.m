@@ -16,6 +16,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // setting the background image to a custom image named: background.jpg
+    UIGraphicsBeginImageContext(self.view.frame.size);
+    [[UIImage imageNamed:@"background.jpg"] drawInRect:self.view.bounds];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    self.view.backgroundColor = [UIColor colorWithPatternImage:image];
 }
 
 - (IBAction)lookupPress:(id)sender {
@@ -32,16 +39,8 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-   
-//    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-//    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-//       
-//
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            [MBProgressHUD hideHUDForView:self.view animated:YES];
-//        });
-//    });
     
+    // setting up the MBP spinning indicator using GCD
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = @"loading";
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.01 * NSEC_PER_SEC);
@@ -56,7 +55,7 @@
             jsonArray = [jsonData valueForKeyPath:@"lfs"]; // fetch value for key lfs
             
                 if (jsonArray.count == 0) {
-                    self.resultTextview.text = @"Sorry, no result found!";
+                    self.resultTextview.text = @"Sorry, no result found :(";
                     
                 }else{
                 
@@ -85,19 +84,14 @@
             NSLog(@"Error: %@", error);
         }];
 
-        
-        
+        // dismiss MBP indicator after the task is done
         [MBProgressHUD hideHUDForView:self.view animated:YES];
     });
-    
-         
-    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 @end
