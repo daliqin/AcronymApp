@@ -16,17 +16,39 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+        
     // setting the background image to a custom image named: background.jpg
     UIGraphicsBeginImageContext(self.view.frame.size);
     [[UIImage imageNamed:@"background.jpg"] drawInRect:self.view.bounds];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     self.view.backgroundColor = [UIColor colorWithPatternImage:image];
+    
+    // dismiss the keyboard
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
+}
+
+// dissmiss keyboards when tap on elsewhere or click the lookup button
+-(void)dismissKeyboard {
+    [self.userInput resignFirstResponder];
+}
+
+// dismiss the keyboard when return key is pressed. Also execute the lookupPress button action.
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    [self lookupPress:nil];
+    return YES;
 }
 
 - (IBAction)lookupPress:(id)sender {
     
+    [self.userInput resignFirstResponder];
+
     // clear the (previous) textview content first in case the user looks up another result again
     self.resultTextview.text = @"";
     

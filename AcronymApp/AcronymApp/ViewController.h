@@ -10,12 +10,11 @@
 #import <AFNetworking.h>
 
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UITextFieldDelegate>
 
-@property (weak, nonatomic) IBOutlet UITextField *userInput;
-@property (weak, nonatomic) IBOutlet UILabel *resultShow;
-- (IBAction)lookupPress:(id)sender;
-@property (weak, nonatomic) IBOutlet UITextView *resultTextview;
+@property (weak, nonatomic) IBOutlet UITextField *userInput; // user input textbox
+- (IBAction)lookupPress:(id)sender; // the look up button
+@property (weak, nonatomic) IBOutlet UITextView *resultTextview; // result show textview
 
 @end
 

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,16 +18,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Input acronym (eg: NFL)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w7r-6b-HdH">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Input acronym (eg: NFL)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w7r-6b-HdH">
                                 <rect key="frame" x="20" y="87" width="188" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="0ul-yV-dxA"/>
+                                </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Is-gp-PRc">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Is-gp-PRc">
                                 <rect key="frame" x="216" y="87" width="89" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.1484047153513508" green="0.34889060529020244" blue="1" alpha="0.69964978448275861" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="89" id="DeO-Zb-5w4"/>
+                                </constraints>
                                 <state key="normal" title="Look Up !">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -34,30 +41,52 @@
                                     <action selector="lookupPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VJk-9i-gWf"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Copyrights © 2015 Charles Chin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r0G-MF-5UW">
-                                <rect key="frame" x="51" y="546" width="220" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ONs-Hw-tU7">
-                                <rect key="frame" x="0.0" y="183" width="320" height="355"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.78428245760668147" green="0.77452212678866261" blue="0.79166666666666663" alpha="0.11850754310344827" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Result showing in below textview:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kx8-bp-Pmg">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Result showing in below textview:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kx8-bp-Pmg">
                                 <rect key="frame" x="32" y="154" width="256" height="21"/>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="ZBx-DV-vik"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                 <color key="textColor" red="0.57672275641025639" green="0.57672275641025639" blue="0.57672275641025639" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyrights © 2015 Charles Chin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r0G-MF-5UW">
+                                <rect key="frame" x="51" y="546" width="220" height="21"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="7G7-EP-AvL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ONs-Hw-tU7">
+                                <rect key="frame" x="0.0" y="183" width="320" height="355"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.78428245760668147" green="0.77452212678866261" blue="0.79166666666666663" alpha="0.11850754310344827" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
+                            </textView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="1Is-gp-PRc" secondAttribute="trailing" constant="-1" id="0gx-2U-RvC"/>
+                            <constraint firstItem="r0G-MF-5UW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="1" id="3FP-x8-3r4"/>
+                            <constraint firstItem="ONs-Hw-tU7" firstAttribute="centerX" secondItem="Kx8-bp-Pmg" secondAttribute="centerX" id="3iJ-xM-gYU"/>
+                            <constraint firstItem="Kx8-bp-Pmg" firstAttribute="top" secondItem="w7r-6b-HdH" secondAttribute="bottom" constant="37" id="Che-JT-NfT"/>
+                            <constraint firstItem="ONs-Hw-tU7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Cng-Bp-sVz"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="r0G-MF-5UW" secondAttribute="bottom" constant="1" id="FGa-gj-Msh"/>
+                            <constraint firstItem="r0G-MF-5UW" firstAttribute="top" secondItem="ONs-Hw-tU7" secondAttribute="bottom" constant="8" symbolic="YES" id="K7W-Ql-PDM"/>
+                            <constraint firstItem="w7r-6b-HdH" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="67" id="LOj-VO-KmT"/>
+                            <constraint firstItem="1Is-gp-PRc" firstAttribute="leading" secondItem="w7r-6b-HdH" secondAttribute="trailing" constant="8" symbolic="YES" id="XuS-RK-H0a"/>
+                            <constraint firstItem="w7r-6b-HdH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="ZzT-Mh-LxO"/>
+                            <constraint firstAttribute="trailing" secondItem="ONs-Hw-tU7" secondAttribute="trailing" id="bSM-Da-pA8"/>
+                            <constraint firstItem="Kx8-bp-Pmg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="16" id="cxu-nE-kog"/>
+                            <constraint firstItem="1Is-gp-PRc" firstAttribute="top" secondItem="w7r-6b-HdH" secondAttribute="top" id="nxi-1d-Sek"/>
+                            <constraint firstItem="ONs-Hw-tU7" firstAttribute="top" secondItem="Kx8-bp-Pmg" secondAttribute="bottom" constant="8" symbolic="YES" id="v8T-Uh-XmG"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
